@@ -31,3 +31,9 @@ RUN echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
 
 # Install Python
 RUN apt-get install -y python3
+
+# Install AWS CLI
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+RUN apt-get install -y unzip
+RUN unzip awscliv2.zip
+RUN ./aws/install && rm -rf awscliv2.zip aws
